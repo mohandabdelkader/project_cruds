@@ -99,20 +99,24 @@ function setValueInInput(index) {
 }
 
 function updateProduct() {
-	productsList[myIndex] = {
-		name: productName.value,
-		price: productPrice.value,
-		category: productCategory.value,
-		description: productDescription.value,
-		sale: productSale.checked,
-		image: `assets/${fileName}`
-	};
+	if (productName.classList.contains('is-valid') && productPrice.classList.contains('is-valid') && productDescription.classList.contains('is-valid')) {
+		productsList[myIndex] = {
+			name: productName.value,
+			price: productPrice.value,
+			category: productCategory.value,
+			description: productDescription.value,
+			sale: productSale.checked,
+			image: `assets/${fileName}`
+		};
 
-	displayProduct(productsList);
-	clearInput();
-	localStorage.setItem('product', JSON.stringify(productsList));
-	addBtn.classList.remove('d-none');
-	editBtn.classList.add('d-none');
+		displayProduct(productsList);
+		clearInput();
+		localStorage.setItem('product', JSON.stringify(productsList));
+		addBtn.classList.remove('d-none');
+		editBtn.classList.add('d-none');
+	} else {
+		alert('Please make sure all fields are valid.');
+	}
 }
 
 function validation(element) {
