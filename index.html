@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>web page</title>
+		<link rel="stylesheet" href="css/all.min.css" />
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div class="container py-5">
+			<!-- input  -->
+			<form>
+				<div class="mb-3">
+					<label for="productName">Product Name</label>
+					<input oninput="validation(this)" class="form-control" type="text" id="productName" />
+					<div class="alert alert-danger text-center my-2 py-2 d-none">you should write first Letter capital</div>
+				</div>
+				<div class="mb-3">
+					<label for="productPrice">Product Price</label>
+					<input oninput="validation(this)" class="form-control" type="number" id="productPrice" />
+					<div class="alert alert-danger text-center my-2 py-2 d-none">you should start 1EG to 999EG</div>
+				</div>
+				<div class="mb-3">
+					<label for="productImage">Product Image</label>
+					<input class="form-control" type="file" id="productImage" />
+				</div>
+				<div class="mb-3">
+					<label for="productCategory">Product Category</label>
+					<select class="form-select" id="productCategory">
+						<option aria-checked="true" value="Tv">Tv</option>
+						<option value="Mobile">Mobile</option>
+						<option value="Fashion">Fashion</option>
+						<option value="Laptop">Laptop</option>
+						<option value="Car">Car</option>
+					</select>
+				</div>
+				<div class="form-check form-switch mb-3">
+					<input class="form-check-input" type="checkbox" id="productSale" />
+					<label class="form-check-label" for="productSale">Product Sale</label>
+				</div>
+				<div class="mb-3">
+					<label for="productDescription">Product Description</label>
+					<textarea oninput="validation(this)" required class="form-control" id="productDescription"></textarea>
+					<div class="alert alert-danger text-center my-2 py-2 d-none">you should write 10 letter</div>
+				</div>
+				<button onclick="addProduct()" type="button" class="btn btn-outline-info" id="addBtn">Add Product</button>
+				<button onclick="updateProduct()" type="button" class="btn btn-outline-warning d-none" id="editBtn">Edit Product</button>
+			</form>
+
+			<input oninput="search()" type="text" class="form-control w-50 mx-auto my-5" placeholder="Search....................." id="searchValue" />
+			<div id="deleteAll" class="my-3"></div>
+
+			<!-- output  -->
+			<table class="table align-middle table-striped text-center table-bordered table-hover mt-5">
+				<thead>
+					<tr>
+						<th>Index</th>
+						<th>Image</th>
+						<th>Product Name</th>
+						<th>Product Price</th>
+						<th>Product Category</th>
+						<th>Product Sale</th>
+						<th>Product Description</th>
+						<th>Update</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody id="myData">
+					<!-- dynamic data here -->
+				</tbody>
+			</table>
+		</div>
+
+		<script src="js/bootstrap.bundle.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
